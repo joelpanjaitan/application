@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useFormValidation = (initialValues, validationRules) => {
+  console.log("ya robi");
   const [values, setValues] = useState(initialValues);
   const [errors, setErrors] = useState({});
   const [isValid, setIsValid] = useState(false);
