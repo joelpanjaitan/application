@@ -28,10 +28,11 @@ root.right = new DataNode(3);
 root.left.left = new DataNode(4);
 root.left.right = new DataNode(5);
 
-// const root = new DataNode(
-//   40,
-//   new DataNode(30, new DataNode(22), new DataNode(38)),
-//   new DataNode(65, null, new DataNode(78))
-// );
+root = new DataNode(40);
+root.left = new DataNode(30);
+root.right = new DataNode(65);
+root.left.left = new DataNode(22);
+root.left.right = new DataNode(38);
+root.right.right = new DataNode(78);
 
 console.log(treeDiameter(root));
