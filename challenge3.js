@@ -25,5 +25,6 @@ function progressInput(input) {
 
   return finalData;
 }
+
 const sample = [1, 2, 3, 0];
 console.log(progressInput(sample).join("\n"));
