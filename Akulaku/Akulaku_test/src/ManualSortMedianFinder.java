@@ -1,6 +1,8 @@
 import java.util.Scanner;
+import java.util.Set;
 import java.util.List;
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class ManualSortMedianFinder {
     public static void main(List<Integer> arr) {
@@ -16,8 +18,8 @@ public class ManualSortMedianFinder {
         // }
 
         // Sort the array using Selection Sort
-        findMedian(arr);
-        
+        //findMedian(arr);
+        lonelyinteger(arr);
         // Find the median
         // double median;
         // if (n % 2 == 0) {
@@ -37,22 +39,40 @@ public class ManualSortMedianFinder {
         // scanner.close();
     }
 
+    public static int lonelyinteger(List<Integer> a) {
+    // Write your code here
+        Set<Integer> uniqueIntegers = new HashSet<>();
+        Set<Integer> duplicateIntegers = new HashSet<>();
+        
+        // magazineCount ={}
+        for (int b=0;b<a.size();b++ ){
+            if (!uniqueIntegers.add(a.get(b))) {
+                duplicateIntegers.add(a.get(b));
+            }   
+        }
+        System.out.println(duplicateIntegers);
+        return 0;
+    }
+
     // Selection Sort implementation
     public static int findMedian(List<Integer> arr) {
     // Write your code here
         int length = arr.size();
-        for (int i = 0; i < length - 1; i++) {
+        for (int k = 0; k < length - 1; k++) {
             // Find the minimum element in the unsorted array
-            int minIndex = i;
-            for (int j = i + 1; j < length; j++) {
+            int minIndex = k;
+            for (int j = k + 1; j < length; j++) {
+                // if bigger change minindex to beside
                 if (arr.get(j) < arr.get(minIndex)) {
                     minIndex = j;
                 }
             }
             // Swap the found minimum element with the first element
             int temp = arr.get(minIndex);
-            arr.set(minIndex,arr.get(i));
-            arr.set(i,temp);
+            // set the right index to larger 
+            arr.set(minIndex,arr.get(k));
+            // set the left index to smaller
+            arr.set(k,temp);
         }
 
         if (length%2==0){
